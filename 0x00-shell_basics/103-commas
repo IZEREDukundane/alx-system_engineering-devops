@@ -1,2 +1,2 @@
 #!/bin/bash
-ln -s /bin/ls __ls__
+ls -av --file-type | xargs echo | sed s/" "/", "/g
