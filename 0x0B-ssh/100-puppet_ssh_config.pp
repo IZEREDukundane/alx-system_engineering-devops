@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # This manifest is configures the SSH client to use the SSH key for the user
 
 $config = "IdentityFile ~/.ssh/school
