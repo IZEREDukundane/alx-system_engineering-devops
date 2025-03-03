@@ -45,7 +45,7 @@ Ensure proper indexing on frequently queried columns.
 Enhance database monitoring for slow queries.
 
 Automate query performance checks.
-
+✋
 
 
 Task List:
@@ -63,3 +63,8 @@ To ensure faster debugging in the future, we propose the following step-by-step 
 🚨[Query Performance Alert] --> 🔎[Check Slow Queries Log] --> 🤔[Identify Missing Index] --> 💡[Create Index] --> 🚀🎉[Verify Performance Improvement]
 
 By implementing these measures, we aim to improve database efficiency and prevent similar slowdowns in the future.💪🥤
+
+![image](https://github.com/user-attachments/assets/e8b586dd-0a9c-4409-89a8-bff01987e444)
+
+
+
