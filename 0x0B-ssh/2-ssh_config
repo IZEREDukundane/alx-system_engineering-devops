@@ -1,6 +1,6 @@
 Host <myserver>
-    HostName <izere>
-    User <izere>
+    HostName 100.25.182.13
+    User izere
     IdentityFile ~/.ssh/school
     PasswordAuthentication no
     IdentitiesOnly yes
