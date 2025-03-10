@@ -1,3 +1,6 @@
-Host *
-    PasswordAuthentication no
+Host <myserver>
+    HostName <izere>
+    User <izere>
     IdentityFile ~/.ssh/school
+    PasswordAuthentication no
+    IdentitiesOnly yes
