@@ -1,20 +1,31 @@
 #!/bin/bash
 
-# Get the Gunicorn master process ID
-GUNICORN_PID=$(pgrep -f 'gunicorn' | head -n 1)
+# Define the Gunicorn PID file location
+GUNICORN_PID_FILE="/var/run/gunicorn.pid"
 
-if [ -z "$GUNICORN_PID" ]; then
-    echo "Gunicorn is not running."
+# Check if Gunicorn PID file exists
+if [[ ! -f "$GUNICORN_PID_FILE" ]]; then
+    echo "Error: Gunicorn PID file not found!"
     exit 1
 fi
 
-# Send the HUP signal to gracefully reload Gunicorn
+# Get the PID of the Gunicorn master process
+GUNICORN_PID=$(cat "$GUNICORN_PID_FILE")
+
+# Check if Gunicorn process is running
+if ! kill -0 "$GUNICORN_PID" 2>/dev/null; then
+    echo "Error: Gunicorn is not running!"
+    exit 1
+fi
+
+# Reload Gunicorn gracefully using HUP signal
+echo "Reloading Gunicorn gracefully..."
 kill -HUP "$GUNICORN_PID"
 
-if [ $? -eq 0 ]; then
-    echo "Gunicorn reloaded successfully without downtime."
+# Verify if reload was successful
+if [[ $? -eq 0 ]]; then
+    echo "Gunicorn reloaded successfully."
 else
-    echo "Failed to reload Gunicorn."
+    echo "Error: Failed to reload Gunicorn."
     exit 1
 fi
-
